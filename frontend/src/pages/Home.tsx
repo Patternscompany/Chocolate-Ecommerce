@@ -24,14 +24,14 @@ function Home() {
             <Link to="/" className="text-2xl font-bold text-[#3c1618]">
               Chocolatier
             </Link>
-            <div className="hidden md:flex space-x-6">
-              <Link to="/" className="text-[#3c1618] hover:text-[#d4a373] transition-colors">
+            <div className="hidden md:flex space-x-6  justify-center">
+              <Link to="/" className="text-[#3c1618] hover:text-[#d4a373] transition-colors text-1.5xl text-bold">
                 Home
               </Link>
-              <Link to="/services" className="text-[#3c1618] hover:text-[#d4a373] transition-colors">
+              <Link to="/services" className="text-[#3c1618] hover:text-[#d4a373] transition-colors text-1.5xl text-bold">
                 Services
               </Link>
-              <Link to="/contact" className="text-[#3c1618] hover:text-[#d4a373] transition-colors">
+              <Link to="/contact" className="text-[#3c1618] hover:text-[#d4a373] transition-colors text-1.5xl texr-bold">
                 Contact
               </Link>
               {user ? (
