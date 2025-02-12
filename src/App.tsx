@@ -6,6 +6,7 @@ import Checkout from './pages/Checkout';
 import ProductDetail from './pages/ProductDetail';
 import Contact from './pages/Contact';
 import Services from './pages/Services';
+import logo from '../src/images/Chocolate-logo.png'
 
 function App() {
   const [isCartOpen, setIsCartOpen] = useState(false);
@@ -24,7 +25,7 @@ function App() {
   return (
     <div className="min-h-screen bg-[#fcfaf8]">
       {/* Navigation */}
-      <nav className="bg-white shadow-sm sticky top-0 z-50">
+      {/* <nav className="bg-[#d4a373] shadow-sm sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16 items-center">
             <div className="flex items-center space-x-8">
@@ -32,7 +33,7 @@ function App() {
                 Chocolatier
               </Link>
               <div className="hidden md:flex space-x-6">
-                <Link to="/" className="text-[#3c1618] hover:text-[#d4a373] transition-colors">
+                <Link to="/" className="text-[#3c1618] hover:text-[#d4a373] transition-colors ">
                   Home
                 </Link>
                 <Link to="/services" className="text-[#3c1618] hover:text-[#d4a373] transition-colors">
@@ -61,7 +62,48 @@ function App() {
             </div>
           </div>
         </div>
-      </nav>
+      </nav> */}
+      <nav className="bg-[#fff7eb] shadow-sm sticky top-0 z-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-16">
+          {/* Logo */}
+          <Link to="/" className="text-2xl font-bold text-[#3c1618]">
+            Chocolatier
+          </Link>
+
+          {/* Navigation Links - Centered */}
+          <div className="hidden md:flex flex-1 justify-center space-x-8">
+            <Link to="/" className="text-[#3c1618] hover:text-black transition-colors text-1xl font-bold">
+              Home
+            </Link>
+            <Link to="/services" className="text-[#3c1618] hover:text-black transition-colors text-1xl font-bold">
+              Services
+            </Link>
+            <Link to="/contact" className="text-[#3c1618] hover:text-black transition-colors text-1xl font-bold">
+              Contact
+            </Link>
+          </div>
+
+          {/* Cart & Wishlist */}
+          <div className="flex items-center space-x-4">
+            <button className="p-2 hover:bg-gray-200 rounded-full">
+              <Heart className="w-6 h-6 text-[#3c1618]" />
+            </button>
+            <button
+              className="p-2 hover:bg-gray-200 rounded-full relative"
+              onClick={() => setIsCartOpen(!isCartOpen)}
+            >
+              <ShoppingCart className="w-6 h-6 text-[#3c1618]" />
+              {cart.length > 0 && (
+                <span className="absolute -top-1 -right-1 bg-[#3c1618] text-white rounded-full w-5 h-5 text-xs flex items-center justify-center">
+                  {cart.length}
+                </span>
+              )}
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
 
       <Routes>
         <Route path="/checkout" element={<Checkout cart={cart} />} />

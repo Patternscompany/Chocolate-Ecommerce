@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Product } from '../data';
+import { Product, products } from '../data';
 
 interface CheckoutProps {
+  
   cart: Product[];
 }
 
@@ -53,6 +54,12 @@ const Checkout: React.FC<CheckoutProps> = ({ cart }) => {
     alert('Order placed successfully!');
     navigate('/');
   };
+
+  // const relatedProducts = products.filter(
+  //     (p) => p.category === product.category && p.id !== product.id
+  //   );
+ 
+
 
   const total = cart.reduce((sum, item) => sum + item.price, 0);
 
