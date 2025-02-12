@@ -47,6 +47,7 @@ const Checkout: React.FC<CheckoutProps> = ({ cart }) => {
     e.preventDefault();
     setStep('payment');
   };
+  console.log("Cart Data in Checkout:", cart);
 
   const handlePaymentSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -259,29 +260,30 @@ const Checkout: React.FC<CheckoutProps> = ({ cart }) => {
         </div>
 
         <div className="bg-white p-6 rounded-lg shadow-md h-fit">
-          <h3 className="text-lg font-semibold text-[#3c1618] mb-4">Order Summary</h3>
-          <div className="space-y-4">
-            {cart.map((item, index) => (
-              <div key={index} className="flex items-center py-2">
-                <img
-                  src={item.image}
-                  alt={item.name}
-                  className="w-16 h-16 object-cover rounded"
-                />
-                <div className="ml-4">
-                  <h4 className="font-semibold text-[#3c1618]">{item.name}</h4>
-                  <p className="text-gray-600">${item.price}</p>
-                </div>
-              </div>
-            ))}
-            <div className="border-t pt-4">
-              <div className="flex justify-between font-semibold text-lg">
-                <span>Total:</span>
-                <span className="text-[#3c1618]">${total.toFixed(2)}</span>
-              </div>
-            </div>
-          </div>
+  <h3 className="text-lg font-semibold text-[#3c1618] mb-4">Order Summary</h3>
+  <div className="space-y-4">
+    {cart.map((item, index) => (
+      <div key={index} className="flex items-center py-2">
+        <img
+          src={item.image}
+          alt={item.name}
+          className="w-16 h-16 object-cover rounded"
+        />
+        <div className="ml-4">
+          <h4 className="font-semibold text-[#3c1618]">{item.name}</h4>
+          <p className="text-gray-600">${item.price.toFixed(2)}</p> {/* Ensure price is formatted */}
         </div>
+      </div>
+    ))}
+    <div className="border-t pt-4">
+      <div className="flex justify-between font-semibold text-lg">
+        <span>Total:</span>
+        <span className="text-[#3c1618]">${total.toFixed(2)}</span> {/* Display total */}
+      </div>
+    </div>
+  </div>
+</div>
+
       </div>
     </div>
   );
