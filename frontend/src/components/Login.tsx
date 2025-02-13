@@ -1,10 +1,12 @@
 import { useState, useContext } from "react";
 import axios from "axios";
 import { AuthContext } from "../context/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [form, setForm] = useState({ email: "", password: "" });
   const authContext = useContext(AuthContext);
+  const navigate=useNavigate();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -19,6 +21,7 @@ const Login = () => {
       authContext?.login(token, user);
 
       alert("Login successful!");
+      navigate("/")
     } catch (error) {
       alert("Login failed.");
     }

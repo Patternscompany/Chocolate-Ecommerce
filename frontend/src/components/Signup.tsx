@@ -1,9 +1,11 @@
 // frontend/src/components/Signup.tsx
-import { useState } from "react";
+import { useState ,} from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const Signup = () => {
   const [form, setForm] = useState({ username: "", email: "", password: "" });
+  const navigate=useNavigate();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -14,6 +16,7 @@ const Signup = () => {
     try {
       await axios.post("http://localhost:5000/api/auth/signup", form);
       alert("Signup successful! Please log in.");
+      navigate("/login")
     } catch (error) {
       alert("Signup failed.");
     }
