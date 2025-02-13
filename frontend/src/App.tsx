@@ -9,6 +9,8 @@ import Contact from "./pages/Contact";
 import Checkout from "./pages/Checkout";
 import Navbar from "./pages/Navbar"
 import { CartProvider } from "./context/CartContext";
+import ProductDetail from "./pages/ProductDetail";
+import Payment from "./pages/Payment";
 
 function App() {
   return (
@@ -19,6 +21,8 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/product/:id" element={<ProductDetail />} />
+        <Route path="/payment" element={<Payment />} />
         <Route path="/checkout" element={<Checkout cart={[]} />} />
 
       </Routes>
