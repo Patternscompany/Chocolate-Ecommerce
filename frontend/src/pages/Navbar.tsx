@@ -67,13 +67,16 @@ const Navbar = () => {
                   <button onClick={() => removeFromCart(item.id)}>
                     <Trash2 className="w-5 h-5 text-red-500" />
                   </button>
+                  
                   <p>${item.price}</p>
                 </li>
+                
               ))}
             </ul>
           )}
 
           {cart.length > 0 && (
+            
             <div className="p-4 border-t">
               {/* Total Price Section */}
               <div className="flex justify-between items-center mb-4">
